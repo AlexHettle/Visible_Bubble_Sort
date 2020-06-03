@@ -3,6 +3,8 @@
 #include<time.h>
 #include<string>
 #include <windows.h>
+//prints out the vector, and once it begins to start printing bars
+//that have already been sorted, it prints them green.
 void print_vec(std::vector<int>&the_list,int inc,HANDLE hConsole){
     int counter=0;
  for(int i:the_list){
@@ -14,6 +16,9 @@ void print_vec(std::vector<int>&the_list,int inc,HANDLE hConsole){
         }
     }
 }
+//A standard bubble sort that uses <windows.h> to alter the colors of numbers
+//represented in the console as bars. Unsorted bars are white and sorted bars
+//are green.
 void bubble_sort(std::vector<int>&the_list){
     HANDLE  hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -47,6 +52,7 @@ void bubble_sort(std::vector<int>&the_list){
 }
 int main()
 {
+    //generates random numbers for the vector
     std::vector<int> the_list;
     srand(time(0));
     for(int i=0;i<20;i++){
@@ -57,3 +63,4 @@ int main()
     do{std::cout<<'\n' << "Beginning bubble sort, press enter to continue...";} while (std::cin.get() != '\n');
     bubble_sort(the_list);
 }
+
